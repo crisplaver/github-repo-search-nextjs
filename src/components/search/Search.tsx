@@ -4,7 +4,9 @@ import useSearch from 'src/hooks/search/useSearch';
 
 const Search = () => {
   const {
+    repositoriesData,
     searchInputText,
+    isFetchingRepositoriesData,
     handleChangeSearchText,
     handlePressSearch
   } = useSearch();
@@ -12,14 +14,16 @@ const Search = () => {
     <Fragment>
       <div>
         <input type="text" value={searchInputText} onChange={(e) => handleChangeSearchText(e.target.value)} />
-        <button type="button" onClick={() => handlePressSearch}>검색</button>
+        <button type="button" onClick={handlePressSearch}>검색</button>
       </div>
       <div>
         <ul>
-          <li>결과1</li>
-          <li>결과2</li>
-          <li>결과3</li>
-          <li>결과4</li>
+          {isFetchingRepositoriesData ?
+            '로딩중' :
+            repositoriesData?.items.map(item => (
+              <li>{item.name}</li>
+            ))
+          }
         </ul>
       </div>
     </Fragment>
