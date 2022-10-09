@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "cypress-multi-reporters": "^1.6.1",
-    "jotai": "^1.8.3",
+    "jotai": "^1.8.5",
     "next": "12.2.5",
     "next-auth": "^4.10.3",
     "react": "18.1.0",
